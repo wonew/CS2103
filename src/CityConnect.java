@@ -202,8 +202,7 @@ public class CityConnect {
 		int position = getPositionOfExistingRoute(newStartLocation, newEndLocation);
 
 		if (position == NOT_FOUND) {
-			return String.format(MESSAGE_NO_ROUTE, newStartLocation,
-					newEndLocation);
+			return String.format(MESSAGE_NO_ROUTE, newStartLocation, newEndLocation);
 		} 
 		else 
 		{
@@ -265,11 +264,9 @@ public class CityConnect {
 			return MESSAGE_NO_SPACE;
 		}
 
-		addRouteAtPosition(newStartLocation, newEndLocation, distance,
-				slotPosition);
+		addRouteAtPosition(newStartLocation, newEndLocation, distance, slotPosition);
 
-		return String.format(MESSAGE_ADDED, newStartLocation, newEndLocation,
-				distance);
+		return String.format(MESSAGE_ADDED, newStartLocation, newEndLocation, distance);
 	}
 
 	private static void addRouteAtPosition(String newStartLocation,
@@ -313,10 +310,8 @@ public class CityConnect {
 			throw new Error(MESSAGE_ERROR);
 		}
 
-		return (startLocation1.equalsIgnoreCase(startLocation2) && endLocation1
-				.equalsIgnoreCase(endLocation2))
-				|| (startLocation1.equalsIgnoreCase(endLocation2) && endLocation1
-						.equalsIgnoreCase(startLocation2));
+		return (startLocation1.equalsIgnoreCase(startLocation2) && endLocation1.equalsIgnoreCase(endLocation2))
+				|| (startLocation1.equalsIgnoreCase(endLocation2) && endLocation1.equalsIgnoreCase(startLocation2));
 	}
 
 	private static boolean isPositiveNonZeroInt(String s) {
