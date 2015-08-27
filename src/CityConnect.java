@@ -50,6 +50,7 @@ public class CityConnect {
 	private static final String MESSAGE_INVALID_FORMAT = "invalid command format :%1$s";
 	private static final String MESSAGE_WELCOME = "Welcome to SimpleRouteStore!";
 	private static final String MESSAGE_NO_SPACE = "No more space to store locations";
+	private static final String MESSAGE_ERROR = "command type string cannot be null!";
 
 	// These are the possible command types
 	enum COMMAND_TYPE {
@@ -309,7 +310,7 @@ public class CityConnect {
 
 		if ((startLocation1 == null) || (endLocation1 == null)
 				&& (startLocation2 == null) || (endLocation2 == null)){
-			throw new Error("Route end points cannot be null");
+			throw new Error(MESSAGE_ERROR);
 		}
 
 		return (startLocation1.equalsIgnoreCase(startLocation2) && endLocation1
