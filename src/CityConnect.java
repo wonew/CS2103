@@ -50,7 +50,8 @@ public class CityConnect {
 	private static final String MESSAGE_INVALID_FORMAT = "invalid command format :%1$s";
 	private static final String MESSAGE_WELCOME = "Welcome to SimpleRouteStore!";
 	private static final String MESSAGE_NO_SPACE = "No more space to store locations";
-	private static final String MESSAGE_ERROR = "command type string cannot be null!";
+	private static final String MESSAGE_NULL_COMMAND_ERROR = "command type string cannot be null!";
+	private static final String MESSAGE_UNRECOGNISED_COMMAND_ERROR = "Unrecognized command type";
 
 	// These are the possible command types
 	enum COMMAND_TYPE {
@@ -140,7 +141,7 @@ public class CityConnect {
 			System.exit(0);
 		default:
 			//throw an error if the command is not recognized
-			throw new Error("Unrecognized command type");
+			throw new Error(MESSAGE_UNRECOGNISED_COMMAND_ERROR);
 		}
 		/*
 		 * ==============NOTE TO STUDENTS======================================
@@ -168,7 +169,7 @@ public class CityConnect {
 	 */
 	private static COMMAND_TYPE determineCommandType(String commandTypeString) {
 		if (commandTypeString == null)
-			throw new Error("command type string cannot be null!");
+			throw new Error(MESSAGE_NULL_COMMAND_ERROR);
 
 		if (commandTypeString.equalsIgnoreCase("addroute")) {
 			return COMMAND_TYPE.ADD_ROUTE;
@@ -307,7 +308,7 @@ public class CityConnect {
 
 		if ((startLocation1 == null) || (endLocation1 == null)
 				&& (startLocation2 == null) || (endLocation2 == null)){
-			throw new Error(MESSAGE_ERROR);
+			throw new Error(MESSAGE_NULL_COMMAND_ERROR);
 		}
 
 		return (startLocation1.equalsIgnoreCase(startLocation2) && endLocation1.equalsIgnoreCase(endLocation2))
